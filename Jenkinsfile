@@ -16,7 +16,7 @@ pipeline {
 
 def getEnvironmentChoices(branchName) {
     echo " printing branch name: ${env.BRANCH_NAME}"
-    if (branchName.startsWith('main/')) {
+    if (branchName == 'main') {
         echo "Printing from inside checj if cond for main branch"
         return 'Dev\nTest\nStaging\nProduction'
     } else if (branchName.startsWith('dev/')) {

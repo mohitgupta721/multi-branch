@@ -4,6 +4,12 @@ pipeline {
         choice(name: 'environment', choices: getEnvironmentChoices(env.BRANCH_NAME), description: 'Select the deployment environment')
     }
     stages {
+        stage("First")
+        {
+            steps{
+                echo "This is first stage of deployment"
+            }
+        }
         // Your pipeline stages go here
     }
 }

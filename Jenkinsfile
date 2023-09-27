@@ -4,10 +4,10 @@ pipeline {
         choice(name: 'environment', choices: getEnvironmentChoices(env.BRANCH_NAME), description: 'Select the deployment environment')
     }
     stages {
-        stage("First")
+        stage("Validate Choice")
         {
             steps{
-                echo "This is first stage of deployment"
+                echo "Hey you have choosen ${params.environment}"
             }
         }
         // Your pipeline stages go here
@@ -17,11 +17,10 @@ pipeline {
 def getEnvironmentChoices(branchName) {
     echo " printing branch name: ${env.BRANCH_NAME}"
     if (branchName == 'main') {
-        echo "Printing from inside checj if cond for main branch"
-        return 'Dev\nTest\nStaging\nProduction'
-    } else if (branchName.startsWith('dev/')) {
+        return 'UAT\nProduction'
+    } else if (branchName == 'dev')) {
         return 'Test\nStaging'
     } else {
-        return 'Staging\nProduction'
+        return 'Sandbox\nSample'
     }
 }

@@ -15,6 +15,7 @@ pipeline {
 }
 
 def getEnvironmentChoices(branchName) {
+    echo " printing branch name: ${env.BRANCH_NAME}"
     if (branchName.startsWith('main/')) {
         return 'Dev\nTest\nStaging\nProduction'
     } else if (branchName.startsWith('dev/')) {

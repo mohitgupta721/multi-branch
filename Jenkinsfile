@@ -15,7 +15,7 @@ pipeline {
 }
 
 def getEnvironmentChoices(branchName) {
-    if (branchName.startsWith('master/')) {
+    if (branchName.startsWith('main/')) {
         return 'Dev\nTest\nStaging\nProduction'
     } else if (branchName.startsWith('dev/')) {
         return 'Test\nStaging'

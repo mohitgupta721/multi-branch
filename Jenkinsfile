@@ -18,7 +18,7 @@ def getEnvironmentChoices(branchName) {
     echo " printing branch name: ${env.BRANCH_NAME}"
     if (branchName == 'main') {
         return 'UAT\nProduction'
-    } else if (branchName == 'dev')) {
+    } else if (branchName == 'dev') {
         return 'Test\nStaging'
     } else {
         return 'Sandbox\nSample'

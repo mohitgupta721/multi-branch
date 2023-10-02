@@ -7,7 +7,7 @@ pipeline {
         stage("Validate Choice")
         {
             steps{
-                BUILD_CAUSE_JSON=$(curl --silent ${BUILD_URL}/api/json | tr "{}" "\n" | grep "Started by")
+                BUILD_CAUSE_JSON=$(curl -s ${BUILD_URL}/api/json | tr "{}" "\n" | grep "Started by")
                 echo " Printing build cause ${BUILD_CAUSE_JSON}"
                 echo "Hey you have choosen ${params.environment}"
             }

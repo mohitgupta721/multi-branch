@@ -8,7 +8,7 @@ pipeline {
         {
             steps{
                 script{
-                BUILD_CAUSE_JSON=$(curl -s "${BUILD_URL}/api/json" | tr "{}" "\n" | grep "Started by")
+                sh 'curl -s "${BUILD_URL}/api/json" | tr "{}" "\n" | grep "Started by")'
                 echo " Printing build cause ${BUILD_CAUSE_JSON}"
                 echo "Hey you have choosen ${params.environment}"
                 }

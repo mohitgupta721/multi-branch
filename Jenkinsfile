@@ -1,6 +1,7 @@
 pipeline {
     agent any
     parameters {
+        label(name: 'TestLabel',defaultValue: 'Do you need testing ?')
         choice(name: 'environment', choices: getEnvironmentChoices(env.BRANCH_NAME), description: 'Select the deployment environment')
     }
     stages {
